@@ -1,0 +1,7 @@
+while true
+do
+./memcached_send_req.sh 1 |telnet localhost 11211
+sleep 10
+./memcached_send_req.sh 1 |telnet localhost 11212
+sleep 10
+done

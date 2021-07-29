@@ -35,3 +35,15 @@ should never go to disk, or you've lost the whole point of it)
 ## Contributing
 
 See https://github.com/memcached/memcached/wiki/DevelopmentRepos
+
+
+## Using with Jaaru
+
+```bash
+make CC=/scratch/nvm/pmcheck/Test/gcc
+```
+
+In client:
+```bash
+telnet localhost 11211
+```

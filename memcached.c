@@ -60,7 +60,7 @@
 #include <limits.h>
 #include <sysexits.h>
 #include <stddef.h>
-
+//void modelexit();
 #ifdef HAVE_GETOPT_LONG
 #include <getopt.h>
 #endif
@@ -4767,13 +4767,14 @@ static void process_command(conn *c, char *command) {
         out_string(c, "VERSION " VERSION);
 
     } else if (ntokens == 2 && (strcmp(tokens[COMMAND_TOKEN].value, "quit") == 0)) {
-
-        conn_set_state(c, conn_closing);
-
+        jaaru_enable_simulating_crash();
+        //conn_set_state(c, conn_closing);
+        out_string(c, "Enabling crash for Jaaru");
     } else if (ntokens == 2 && (strcmp(tokens[COMMAND_TOKEN].value, "shutdown") == 0)) {
 
         if (settings.shutdown_command) {
             conn_set_state(c, conn_closing);
+            exit(EXIT_SUCCESS);
             raise(SIGINT);
         } else {
             out_string(c, "ERROR: shutdown not enabled");
