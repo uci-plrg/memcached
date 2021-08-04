@@ -9,3 +9,7 @@ autom4te.cache/
 stamp-h1
 .deps/
 PMCheckOutput*
+Makefile
+doc/Makefile
+config.h
+config.status
